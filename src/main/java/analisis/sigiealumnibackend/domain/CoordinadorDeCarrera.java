@@ -16,6 +16,8 @@ public class CoordinadorDeCarrera {
     private String correoInstitucional;
 
 
+    public CoordinadorDeCarrera(){}
+
     public CoordinadorDeCarrera(int idPersonaCoordinadora, String nombre, String apellidos, String correoInstitucional) {
         this.idPersonaCoordinadora = idPersonaCoordinadora;
         this.nombre = nombre;
