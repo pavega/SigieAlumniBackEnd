@@ -11,18 +11,19 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping(path = "/api/ofertalaboral")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(path = "/api/ofertas-laborales")
 public class OfertaLaboralController {
 
     @Autowired
     private OfertaLaboralService ofertaLaboralService;
 
-    @GetMapping("/getAll")
+    @GetMapping("/")
     public List<OfertaLaboral> list() {
         return ofertaLaboralService.list();
     }
 
-    @GetMapping("/getOfertaLaboral/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<OfertaLaboral> get(@PathVariable Integer id) {
         try {
             OfertaLaboral ofertaLaboral = ofertaLaboralService.get(id);
@@ -32,17 +33,17 @@ public class OfertaLaboralController {
         }
     }
 
-    @PostMapping("/addOfertaLaboral")
+    @PostMapping("/")
     public void add(@RequestBody OfertaLaboral ofertaLaboral) {
         ofertaLaboralService.save(ofertaLaboral);
     }
 
-    @DeleteMapping("/deleteOfertaLaboral/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         ofertaLaboralService.delete(id);
     }
 
-    @PutMapping(value = "/updateOfertaLaboral")
+    @PutMapping("/")
     public void update(@RequestBody OfertaLaboral ofertaLaboral){
         ofertaLaboralService.save(ofertaLaboral);
     }
