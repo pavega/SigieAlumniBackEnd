@@ -15,6 +15,7 @@ public class Organizacion {
     private String correo;
     private String telefono;
 
+    public Organizacion(){}
     public Organizacion(int idOrganizacion, String nombre, String correo, String telefono) {
         this.idOrganizacion = idOrganizacion;
         this.nombre = nombre;

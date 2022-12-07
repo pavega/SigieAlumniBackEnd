@@ -49,6 +49,7 @@ public class OfertaLaboral {
     @ManyToOne
     private Organizacion organizacion;
 
+    public OfertaLaboral(){}
     public OfertaLaboral(int idOfertaLaboral, String nombrePuesto, String tipoJornada, String extensionContrato, int numVacantes, String enlaceContacto, Date disponibleHasta, String estado, CoordinadorDeCarrera creadoPor, List<RequisitoDePuesto> idiomas, List<RequisitoDePuesto> habilidadesBlandas, List<RequisitoDePuesto> certificaciones, List<RequisitoDePuesto> habilidadesTecnicas, List<RequisitoDePuesto> experienciaLaboral, Organizacion organizacion) {
         this.idOfertaLaboral = idOfertaLaboral;
         this.nombrePuesto = nombrePuesto;

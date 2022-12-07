@@ -14,6 +14,8 @@ public class RequisitoDePuesto {
     private boolean requerido;
     private String detalle;
 
+    public RequisitoDePuesto(){}
+
     public RequisitoDePuesto(int idRequisito, boolean requerido, String detalle) {
         this.idRequisito = idRequisito;
         this.requerido = requerido;
