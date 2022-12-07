@@ -10,25 +10,25 @@ public class Organizacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idOrganizacion;
+    private int id;
     private String nombre;
     private String correo;
     private String telefono;
 
     public Organizacion(){}
-    public Organizacion(int idOrganizacion, String nombre, String correo, String telefono) {
-        this.idOrganizacion = idOrganizacion;
+    public Organizacion(int id, String nombre, String correo, String telefono) {
+        this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.telefono = telefono;
     }
 
-    public int getIdOrganizacion() {
-        return idOrganizacion;
+    public int getId() {
+        return id;
     }
 
-    public void setIdOrganizacion(int idOrganizacion) {
-        this.idOrganizacion = idOrganizacion;
+    public void setId(int idOrganizacion) {
+        this.id = idOrganizacion;
     }
 
     public String getNombre() {

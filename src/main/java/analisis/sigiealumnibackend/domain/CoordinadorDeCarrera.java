@@ -10,7 +10,7 @@ public class CoordinadorDeCarrera {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPersonaCoordinadora;
+    private int id;
     private String nombre;
     private String apellidos;
     private String correoInstitucional;
@@ -18,19 +18,19 @@ public class CoordinadorDeCarrera {
 
     public CoordinadorDeCarrera(){}
 
-    public CoordinadorDeCarrera(int idPersonaCoordinadora, String nombre, String apellidos, String correoInstitucional) {
-        this.idPersonaCoordinadora = idPersonaCoordinadora;
+    public CoordinadorDeCarrera(int id, String nombre, String apellidos, String correoInstitucional) {
+        this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correoInstitucional = correoInstitucional;
     }
 
-    public int getIdPersonaCoordinadora() {
-        return idPersonaCoordinadora;
+    public int getId() {
+        return id;
     }
 
-    public void setIdPersonaCoordinadora(int idPersonaCoordinadora) {
-        this.idPersonaCoordinadora = idPersonaCoordinadora;
+    public void setId(int idPersonaCoordinadora) {
+        this.id = idPersonaCoordinadora;
     }
 
     public String getNombre() {
