@@ -9,7 +9,7 @@ public class OfertaLaboral {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idOfertaLaboral;
+    private Integer id;
     private String nombrePuesto;
     private String tipoJornada;
     private String extensionContrato;
@@ -21,59 +21,38 @@ public class OfertaLaboral {
     @ManyToOne
     private CoordinadorDeCarrera creadoPor;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "detalle",
-            orphanRemoval = true)
-    private List<RequisitoDePuesto> idiomas;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "ofertalaboral_id")
+    private List<RequisitoDeIdioma> idiomas;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "detalle",
-            orphanRemoval = true)
-    private List<RequisitoDePuesto> habilidadesBlandas;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "ofertalaboral_id")
+    private List<RequisitoDeHabilidadBlanda> habilidadesBlandas;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "detalle",
-            orphanRemoval = true)
-    private List<RequisitoDePuesto> certificaciones;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "ofertalaboral_id")
+    private List<RequisitoDeCertificacion> certificaciones;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "detalle",
-            orphanRemoval = true)
-    private List<RequisitoDePuesto> habilidadesTecnicas;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "ofertalaboral_id")
+    private List<RequisitoDeHabilidadTecnica> habilidadesTecnicas;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "detalle",
-            orphanRemoval = true)
-    private List<RequisitoDePuesto> experienciaLaboral;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "ofertalaboral_id")
+    private List<RequisitoDeExperienciaLaboral> experienciaLaboral;
 
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Organizacion organizacion;
 
     public OfertaLaboral(){}
-    public OfertaLaboral(int idOfertaLaboral, String nombrePuesto, String tipoJornada, String extensionContrato, int numVacantes, String enlaceContacto, Date disponibleHasta, String estado, CoordinadorDeCarrera creadoPor, List<RequisitoDePuesto> idiomas, List<RequisitoDePuesto> habilidadesBlandas, List<RequisitoDePuesto> certificaciones, List<RequisitoDePuesto> habilidadesTecnicas, List<RequisitoDePuesto> experienciaLaboral, Organizacion organizacion) {
-        this.idOfertaLaboral = idOfertaLaboral;
-        this.nombrePuesto = nombrePuesto;
-        this.tipoJornada = tipoJornada;
-        this.extensionContrato = extensionContrato;
-        this.numVacantes = numVacantes;
-        this.enlaceContacto = enlaceContacto;
-        this.disponibleHasta = disponibleHasta;
-        this.estado = estado;
-        this.creadoPor = creadoPor;
-        this.idiomas = idiomas;
-        this.habilidadesBlandas = habilidadesBlandas;
-        this.certificaciones = certificaciones;
-        this.habilidadesTecnicas = habilidadesTecnicas;
-        this.experienciaLaboral = experienciaLaboral;
-        this.organizacion = organizacion;
+
+
+    public int getId() {
+        return id;
     }
 
-    public int getIdOfertaLaboral() {
-        return idOfertaLaboral;
-    }
-
-    public void setIdOfertaLaboral(int idOfertaLaboral) {
-        this.idOfertaLaboral = idOfertaLaboral;
+    public void setId(int idOfertaLaboral) {
+        this.id = idOfertaLaboral;
     }
 
     public String getNombrePuesto() {
@@ -140,43 +119,43 @@ public class OfertaLaboral {
         this.creadoPor = creadoPor;
     }
 
-    public List<RequisitoDePuesto> getIdiomas() {
+    public List<RequisitoDeIdioma> getIdiomas() {
         return idiomas;
     }
 
-    public void setIdiomas(List<RequisitoDePuesto> idiomas) {
+    public void setIdiomas(List<RequisitoDeIdioma> idiomas) {
         this.idiomas = idiomas;
     }
 
-    public List<RequisitoDePuesto> getHabilidadesBlandas() {
+    public List<RequisitoDeHabilidadBlanda> getHabilidadesBlandas() {
         return habilidadesBlandas;
     }
 
-    public void setHabilidadesBlandas(List<RequisitoDePuesto> habilidadesBlandas) {
+    public void setHabilidadesBlandas(List<RequisitoDeHabilidadBlanda> habilidadesBlandas) {
         this.habilidadesBlandas = habilidadesBlandas;
     }
 
-    public List<RequisitoDePuesto> getCertificaciones() {
+    public List<RequisitoDeCertificacion> getCertificaciones() {
         return certificaciones;
     }
 
-    public void setCertificaciones(List<RequisitoDePuesto> certificaciones) {
+    public void setCertificaciones(List<RequisitoDeCertificacion> certificaciones) {
         this.certificaciones = certificaciones;
     }
 
-    public List<RequisitoDePuesto> getHabilidadesTecnicas() {
+    public List<RequisitoDeHabilidadTecnica> getHabilidadesTecnicas() {
         return habilidadesTecnicas;
     }
 
-    public void setHabilidadesTecnicas(List<RequisitoDePuesto> habilidadesTecnicas) {
+    public void setHabilidadesTecnicas(List<RequisitoDeHabilidadTecnica> habilidadesTecnicas) {
         this.habilidadesTecnicas = habilidadesTecnicas;
     }
 
-    public List<RequisitoDePuesto> getExperienciaLaboral() {
+    public List<RequisitoDeExperienciaLaboral> getExperienciaLaboral() {
         return experienciaLaboral;
     }
 
-    public void setExperienciaLaboral(List<RequisitoDePuesto> experienciaLaboral) {
+    public void setExperienciaLaboral(List<RequisitoDeExperienciaLaboral> experienciaLaboral) {
         this.experienciaLaboral = experienciaLaboral;
     }
 
@@ -188,23 +167,24 @@ public class OfertaLaboral {
         this.organizacion = organizacion;
     }
 
-    public void addIdiomas(RequisitoDePuesto idioma){
+    public void addIdiomas(RequisitoDeIdioma idioma){
         this.idiomas.add(idioma);
     }
 
-    public void addHabilidadBlanda(RequisitoDePuesto habilidadBlanda){
+    public void addHabilidadBlanda(RequisitoDeHabilidadBlanda habilidadBlanda){
         this.habilidadesBlandas.add(habilidadBlanda);
     }
 
-    public void addCertificacion(RequisitoDePuesto certificacion){
+    public void addCertificacion(RequisitoDeCertificacion certificacion){
         this.certificaciones.add(certificacion);
     }
 
-    public void addHabilidadTecnica(RequisitoDePuesto habilidadTecnica){
+    public void addHabilidadTecnica(RequisitoDeHabilidadTecnica habilidadTecnica){
         this.habilidadesTecnicas.add(habilidadTecnica);
     }
 
-    public void addExperienciaLaboral(RequisitoDePuesto experienciaLaboral){
+    public void addExperienciaLaboral(RequisitoDeExperienciaLaboral experienciaLaboral){
         this.experienciaLaboral.add(experienciaLaboral);
     }
+
 }
