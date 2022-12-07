@@ -1,10 +1,5 @@
 package analisis.sigiealumnibackend.domain;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import org.hibernate.annotations.Filter;
-import org.hibernate.annotations.FilterJoinTable;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -26,13 +21,8 @@ public class OfertaLaboral {
     @ManyToOne
     private CoordinadorDeCarrera creadoPor;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "ofertaLaboral",
-            orphanRemoval = true)
-    @JsonIdentityInfo(
-            generator = ObjectIdGenerators.PropertyGenerator.class,
-            property = "id"
-    )
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "ofertalaboral_id")
     private List<RequisitoDeIdioma> idiomas;
 
     @OneToMany(cascade = CascadeType.ALL,

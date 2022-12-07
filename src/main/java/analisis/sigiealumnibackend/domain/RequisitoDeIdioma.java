@@ -1,7 +1,5 @@
 package analisis.sigiealumnibackend.domain;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 
@@ -13,15 +11,6 @@ public class RequisitoDeIdioma {
     private int id;
     private String detalle;
     private boolean requerido;
-
-    @ManyToOne(cascade = CascadeType.ALL,
-        fetch = FetchType.LAZY)
-    @JoinColumn(name = "ofertalaboral_id")
-    @JsonIdentityInfo(
-            generator = ObjectIdGenerators.PropertyGenerator.class,
-            property = "id"
-    )
-    private OfertaLaboral ofertaLaboral;
 
     public RequisitoDeIdioma(){}
 
@@ -49,11 +38,5 @@ public class RequisitoDeIdioma {
         this.requerido = requerido;
     }
 
-    public OfertaLaboral getOfertaLaboral() {
-        return ofertaLaboral;
-    }
 
-    public void setOfertaLaboral(OfertaLaboral ofertaLaboral) {
-        this.ofertaLaboral = ofertaLaboral;
-    }
 }
