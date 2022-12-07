@@ -1,7 +1,5 @@
 package analisis.sigiealumnibackend.domain;
 
-import org.hibernate.annotations.FilterJoinTable;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
