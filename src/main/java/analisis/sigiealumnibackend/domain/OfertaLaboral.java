@@ -1,5 +1,10 @@
 package analisis.sigiealumnibackend.domain;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterJoinTable;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -22,9 +27,13 @@ public class OfertaLaboral {
     private CoordinadorDeCarrera creadoPor;
 
     @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "detalle",
+            mappedBy = "ofertaLaboral",
             orphanRemoval = true)
-    private List<RequisitoDePuesto> idiomas;
+    @JsonIdentityInfo(
+            generator = ObjectIdGenerators.PropertyGenerator.class,
+            property = "id"
+    )
+    private List<RequisitoDeIdioma> idiomas;
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "detalle",
@@ -51,7 +60,7 @@ public class OfertaLaboral {
 
     public OfertaLaboral(){}
 
-    public OfertaLaboral(int id, String nombrePuesto, String tipoJornada, String extensionContrato, int numVacantes, String enlaceContacto, Date disponibleHasta, String estado, CoordinadorDeCarrera creadoPor, List<RequisitoDePuesto> idiomas, List<RequisitoDePuesto> habilidadesBlandas, List<RequisitoDePuesto> certificaciones, List<RequisitoDePuesto> habilidadesTecnicas, List<RequisitoDePuesto> experienciaLaboral, Organizacion organizacion) {
+    public OfertaLaboral(int id, String nombrePuesto, String tipoJornada, String extensionContrato, int numVacantes, String enlaceContacto, Date disponibleHasta, String estado, CoordinadorDeCarrera creadoPor, List<RequisitoDeIdioma> idiomas, List<RequisitoDePuesto> habilidadesBlandas, List<RequisitoDePuesto> certificaciones, List<RequisitoDePuesto> habilidadesTecnicas, List<RequisitoDePuesto> experienciaLaboral, Organizacion organizacion) {
         this.id = id;
         this.nombrePuesto = nombrePuesto;
         this.tipoJornada = tipoJornada;
@@ -141,11 +150,11 @@ public class OfertaLaboral {
         this.creadoPor = creadoPor;
     }
 
-    public List<RequisitoDePuesto> getIdiomas() {
+    public List<RequisitoDeIdioma> getIdiomas() {
         return idiomas;
     }
 
-    public void setIdiomas(List<RequisitoDePuesto> idiomas) {
+    public void setIdiomas(List<RequisitoDeIdioma> idiomas) {
         this.idiomas = idiomas;
     }
 
@@ -189,7 +198,7 @@ public class OfertaLaboral {
         this.organizacion = organizacion;
     }
 
-    public void addIdiomas(RequisitoDePuesto idioma){
+    public void addIdiomas(RequisitoDeIdioma idioma){
         this.idiomas.add(idioma);
     }
 
