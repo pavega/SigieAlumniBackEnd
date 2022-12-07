@@ -9,7 +9,7 @@ public class OfertaLaboral {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idOfertaLaboral;
+    private Integer id;
     private String nombrePuesto;
     private String tipoJornada;
     private String extensionContrato;
@@ -46,12 +46,13 @@ public class OfertaLaboral {
             orphanRemoval = true)
     private List<RequisitoDePuesto> experienciaLaboral;
 
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Organizacion organizacion;
 
     public OfertaLaboral(){}
-    public OfertaLaboral(int idOfertaLaboral, String nombrePuesto, String tipoJornada, String extensionContrato, int numVacantes, String enlaceContacto, Date disponibleHasta, String estado, CoordinadorDeCarrera creadoPor, List<RequisitoDePuesto> idiomas, List<RequisitoDePuesto> habilidadesBlandas, List<RequisitoDePuesto> certificaciones, List<RequisitoDePuesto> habilidadesTecnicas, List<RequisitoDePuesto> experienciaLaboral, Organizacion organizacion) {
-        this.idOfertaLaboral = idOfertaLaboral;
+
+    public OfertaLaboral(int id, String nombrePuesto, String tipoJornada, String extensionContrato, int numVacantes, String enlaceContacto, Date disponibleHasta, String estado, CoordinadorDeCarrera creadoPor, List<RequisitoDePuesto> idiomas, List<RequisitoDePuesto> habilidadesBlandas, List<RequisitoDePuesto> certificaciones, List<RequisitoDePuesto> habilidadesTecnicas, List<RequisitoDePuesto> experienciaLaboral, Organizacion organizacion) {
+        this.id = id;
         this.nombrePuesto = nombrePuesto;
         this.tipoJornada = tipoJornada;
         this.extensionContrato = extensionContrato;
@@ -68,12 +69,12 @@ public class OfertaLaboral {
         this.organizacion = organizacion;
     }
 
-    public int getIdOfertaLaboral() {
-        return idOfertaLaboral;
+    public int getId() {
+        return id;
     }
 
-    public void setIdOfertaLaboral(int idOfertaLaboral) {
-        this.idOfertaLaboral = idOfertaLaboral;
+    public void setId(int idOfertaLaboral) {
+        this.id = idOfertaLaboral;
     }
 
     public String getNombrePuesto() {
@@ -207,4 +208,5 @@ public class OfertaLaboral {
     public void addExperienciaLaboral(RequisitoDePuesto experienciaLaboral){
         this.experienciaLaboral.add(experienciaLaboral);
     }
+
 }

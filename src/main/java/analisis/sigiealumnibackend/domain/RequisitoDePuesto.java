@@ -1,17 +1,18 @@
 package analisis.sigiealumnibackend.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class RequisitoDePuesto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int idRequisito;
+
+    //@Column(unique = true)
     private boolean requerido;
+
     private String detalle;
 
     public RequisitoDePuesto(){}
