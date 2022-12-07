@@ -1,5 +1,7 @@
 package analisis.sigiealumnibackend.domain;
 
+import org.hibernate.annotations.FilterJoinTable;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -24,12 +26,16 @@ public class OfertaLaboral {
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "detalle",
             orphanRemoval = true)
-    private List<RequisitoDePuesto> idiomas;
+    @FilterJoinTable(
+            name="role",
+            condition = "role = I"
+    )
+    private List<RequisitoDePuesto> idiomas; // role = I
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "detalle",
             orphanRemoval = true)
-    private List<RequisitoDePuesto> habilidadesBlandas;
+    private List<RequisitoDePuesto> habilidadesBlandas; // role = HB
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "detalle",
