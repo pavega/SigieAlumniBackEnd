@@ -16,6 +16,12 @@ public class RequisitoDeHabilidadTecnica {
 
     public RequisitoDeHabilidadTecnica(){}
 
+    public RequisitoDeHabilidadTecnica(int id, String detalle, boolean requerido) {
+        this.id = id;
+        this.detalle = detalle;
+        this.requerido = requerido;
+    }
+
     public int getId() {
         return id;
     }

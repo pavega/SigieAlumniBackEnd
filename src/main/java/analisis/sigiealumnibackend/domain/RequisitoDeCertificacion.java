@@ -15,6 +15,12 @@ public class RequisitoDeCertificacion {
 
     public RequisitoDeCertificacion(){}
 
+    public RequisitoDeCertificacion(int id, String detalle, boolean requerido) {
+        this.id = id;
+        this.detalle = detalle;
+        this.requerido = requerido;
+    }
+
     public int getId() {
         return id;
     }

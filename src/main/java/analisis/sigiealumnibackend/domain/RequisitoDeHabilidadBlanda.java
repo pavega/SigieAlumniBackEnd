@@ -16,6 +16,12 @@ public class RequisitoDeHabilidadBlanda {
 
     public RequisitoDeHabilidadBlanda(){}
 
+    public RequisitoDeHabilidadBlanda(int id, String detalle, boolean requerido) {
+        this.id = id;
+        this.detalle = detalle;
+        this.requerido = requerido;
+    }
+
     public int getId() {
         return id;
     }

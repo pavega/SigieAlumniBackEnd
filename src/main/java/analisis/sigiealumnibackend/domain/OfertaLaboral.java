@@ -18,7 +18,7 @@ public class OfertaLaboral {
     private Date disponibleHasta;
     private String estado;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private CoordinadorDeCarrera creadoPor;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -46,13 +46,31 @@ public class OfertaLaboral {
 
     public OfertaLaboral(){}
 
+    public OfertaLaboral(Integer id,String nombrePuesto, String tipoJornada, String extensionContrato, int numVacantes, String enlaceContacto, Date disponibleHasta, String estado, CoordinadorDeCarrera creadoPor, List<RequisitoDeIdioma> idiomas, List<RequisitoDeHabilidadBlanda> habilidadesBlandas, List<RequisitoDeCertificacion> certificaciones, List<RequisitoDeHabilidadTecnica> habilidadesTecnicas, List<RequisitoDeExperienciaLaboral> experienciaLaboral, Organizacion organizacion) {
+        this.id = id;
+        this.nombrePuesto = nombrePuesto;
+        this.tipoJornada = tipoJornada;
+        this.extensionContrato = extensionContrato;
+        this.numVacantes = numVacantes;
+        this.enlaceContacto = enlaceContacto;
+        this.disponibleHasta = disponibleHasta;
+        this.estado = estado;
+        this.creadoPor = creadoPor;
+        this.idiomas = idiomas;
+        this.habilidadesBlandas = habilidadesBlandas;
+        this.certificaciones = certificaciones;
+        this.habilidadesTecnicas = habilidadesTecnicas;
+        this.experienciaLaboral = experienciaLaboral;
+        this.organizacion = organizacion;
+    }
 
-    public int getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int idOfertaLaboral) {
-        this.id = idOfertaLaboral;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombrePuesto() {
